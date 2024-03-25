@@ -5,14 +5,15 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { todoItems } from './models/todoItem.mock';
+import { HeaderMenuComponent } from './header-menu/header-menu.component';
 
 
 @Component({
-  standalone:false,
+  standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  //imports:[CommonModule, FormsModule]
+  styleUrls: ['./app.component.css'],   
+  //imports:[CommonModule, FormsModule, HeaderMenuComponent]
 
 
 })
@@ -23,12 +24,12 @@ export class AppComponent {
 
   todoItems: TodoItem[] = todoItems
 
-  filter(){
+  filter() {
     this.isAllTasksDisplaying = !this.isAllTasksDisplaying
     if (!this.isAllTasksDisplaying) {
-      this.todoItems = this.todoItems.filter(x=>!x.isDone);
+      this.todoItems = this.todoItems.filter(x => !x.isDone);
     }
-    else{
+    else {
       this.todoItems = todoItems;
     }
 
@@ -36,7 +37,15 @@ export class AppComponent {
 
   isAllTasksDisplaying: boolean = true;
 
-  getButtonText():string{
+  getButtonText(): string {
     return this.isAllTasksDisplaying ? "Yapılan işleri gizle" : "Tüm Görevleri Göster";
+  }
+
+  getTotalTasksCount(): number {
+    return this.todoItems.filter(x => !x.isDone).length;
+  }
+  addNewTask(taskName: string) {
+    let todoItem = new TodoItem(taskName, false);
+    this.todoItems.push(todoItem);
   }
 }
