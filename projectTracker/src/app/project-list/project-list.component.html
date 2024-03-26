@@ -1,6 +1,12 @@
-<p>project-list works!</p>
-<div class="row m-2" *ngFor="let project of projects">
-    <div class="col-12">
-        <app-project [currentProject]="project"></app-project>
+<div class="container">
+    <div class="row m-4">
+        <div class="col-12">
+            <input type="text" placeholder="Aranacak proje adı" [(ngModel)]="searchKey" class="form-control">
+        </div>
+    </div>
+    <div class="row m-2" *ngFor="let project of projects | search:searchKey">
+        <div class="col-12 p-2">
+            <app-project [currentProject]="project"></app-project>
+        </div>
     </div>
 </div>

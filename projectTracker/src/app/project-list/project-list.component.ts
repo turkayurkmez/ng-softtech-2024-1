@@ -8,7 +8,8 @@ import { projects } from '../models/mocks/projects.mock'
   styleUrl: './project-list.component.css'
 })
 export class ProjectListComponent {
-  projects: Project[] =  projects;
+  projects: Project[] = projects;
+  searchKey: string = '';
 
-  
+
 }
