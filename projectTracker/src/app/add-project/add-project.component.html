@@ -1,0 +1,29 @@
+<h3>Yeni Proje Ekle</h3>
+<form [formGroup]="addProjectForm" (ngSubmit)="addProject()">
+    <div>
+        <label>Proje Adı</label>
+        <input type="text" class="form-control" id="projectName" formControlName="name">
+        <span class="alert alert-danger  form-control" *ngIf="checkName()">Proje adı boş olamaz</span>
+        <span class="alert alert-danger form-control" *ngIf="checkNameLength()">Proje adı en az üç harf olmalı</span>
+
+    </div>
+    <div>
+        <label>Açıklaması</label>
+        <input type="text" class="form-control" id="projectDescription" formControlName="description">
+        <span class="alert alert-danger form-control" *ngIf="checkDescription()">Proje açıklaması boş olamaz</span>
+    </div>
+    <div>
+        <label>Başlangıç Tarihi</label>
+        <input type="date" class="form-control" id="projectDate">
+    </div>
+    <div>
+        <label>Departman</label>
+        <select formControlName="departmentId" class="form-select">
+            <option value="">Seçiniz...</option>
+            <option value="{{department.id}}" *ngFor="let department of departments">{{department.name}}</option>
+
+        </select>
+        <span class="alert alert-danger form-control" *ngIf="checkDepartment()">Lütfen Departman seçiniz...</span>
+    </div>
+    <button type="submit" class="btn btn-dark">Yeni Proje Ekle</button>
+</form>
