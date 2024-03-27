@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 
 import { SearchPipe } from './pipes/search.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { AddDepartmentComponent } from './add-department/add-department.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProjectListComponent,
     ProjectComponent,
     TaskListComponent,  
-    SearchPipe
+    SearchPipe, AddDepartmentComponent
   ],
   imports: [
     BrowserModule,
