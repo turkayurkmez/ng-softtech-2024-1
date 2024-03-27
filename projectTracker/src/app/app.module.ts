@@ -14,6 +14,7 @@ import { SearchPipe } from './pipes/search.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { AddProjectComponent } from './add-project/add-project.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { AddProjectComponent } from './add-project/add-project.component';
     ProjectListComponent,
     ProjectComponent,
     TaskListComponent,  
-    SearchPipe, AddDepartmentComponent, AddProjectComponent
+    SearchPipe, AddDepartmentComponent, AddProjectComponent, LoginComponent
   ],
   imports: [
     BrowserModule,
